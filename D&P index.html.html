@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>D&P Brothers: SDR Campaign Explained</title>
+<style>
+:root{--bg:#0f1b2d;--card:#18304f;--tx:#f2f5fa;--mut:#9fb3cc;--ac:#f5a623;--ok:#3ecf8e;--bad:#ff6b6b;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f4f6fa;--card:#fff;--tx:#14233a;--mut:#53657f;--ac:#d98200;--ok:#139a63;--bad:#d64545}}
+:root[data-theme="light"]{--bg:#f4f6fa;--card:#fff;--tx:#14233a;--mut:#53657f;--ac:#d98200;--ok:#139a63;--bad:#d64545}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow:hidden}
+#stage{position:relative;height:calc(100% - 64px);max-width:980px;margin:0 auto}
+.scene{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px 22px;text-align:center;opacity:0;pointer-events:none;overflow:auto}
+.scene.on{opacity:1;pointer-events:auto}
+.scene>*{opacity:0}
+.scene.on>*{animation:up .7s ease forwards;animation-delay:calc(var(--i,0)*.25s)}
+@keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes pop{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:none}}
+@keyframes pulse{50%{box-shadow:0 0 0 12px transparent}}
+h1{font-size:clamp(28px,6vw,52px);margin:0 0 10px;line-height:1.1}
+h2{font-size:clamp(22px,4.5vw,36px);margin:0 0 18px}
+p{color:var(--mut);font-size:clamp(15px,2.4vw,19px);max-width:640px;margin:6px auto}
+.ac{color:var(--ac)}
+.tag{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ac);margin-bottom:8px}
+.row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;align-items:center;margin:10px 0}
+.box{background:var(--card);border:2px solid transparent;border-radius:14px;padding:12px 16px;min-width:110px;font-weight:600;font-size:15px}
+.box small{display:block;font-weight:400;color:var(--mut);font-size:12px;margin-top:3px}
+.scene.on .row .box{opacity:0;animation:pop .5s ease forwards;animation-delay:calc(var(--i,0)*.25s + var(--n,0)*.35s)}
+.hl{border-color:var(--ac)!important;animation:pop .5s ease forwards,pulse 1.6s 1.5s infinite!important;box-shadow:0 0 0 0 var(--ac)}
+.arr{color:var(--ac);font-size:22px}
+.us{border-color:var(--ok)}
+.no{border-color:var(--bad)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;width:100%;max-width:820px;margin-top:8px}
+.grid .box{text-align:left}
+.swap{display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center}
+.swap .arr{font-size:30px}
+#bar{height:4px;background:var(--card)}
+#fill{height:100%;width:0;background:var(--ac)}
+#ctl{height:60px;display:flex;align-items:center;justify-content:center;gap:10px}
+button{background:var(--card);color:var(--tx);border:1px solid var(--mut);border-radius:999px;padding:9px 18px;font-size:15px;cursor:pointer}
+button:hover{border-color:var(--ac)}
+#dots{display:flex;gap:6px}
+#dots i{width:8px;height:8px;border-radius:50%;background:var(--card);border:1px solid var(--mut)}
+#dots i.on{background:var(--ac);border-color:var(--ac)}
+@media (prefers-reduced-motion:reduce){.scene.on>*,.scene.on .row .box{animation-duration:.01s;animation-delay:0s}}
+#start{position:fixed;inset:0;z-index:9;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:24px}#start h1{margin:0}#start .go{background:var(--ac);color:#111;border:0;font-weight:700;font-size:18px;padding:14px 28px}#start .no{border:0;background:none;color:var(--mut);text-decoration:underline}#cap{position:fixed;left:0;right:0;bottom:64px;text-align:center;color:var(--mut);font-size:12px}</style>
+</head>
+<body>
+<div id="start"><div class="tag">Narrated walkthrough</div><h1>D&amp;P Brothers<br><span class="ac">Referral Campaign</span></h1><p>Turn your sound on. About 3 minutes.</p><button class="go" id="gov">▶ Start with voice</button><button class="no" id="gos">Start without voice</button></div>
+<div id="bar"><div id="fill"></div></div>
+<div id="stage">
+
+<section class="scene">
+<div class="tag" style="--i:0">SDR Onboarding</div>
+<h1 style="--i:1">D&amp;P Brothers<br><span class="ac">Referral Campaign</span></h1>
+<p style="--i:2">Everything a new sales development rep needs to know, in about two minutes.</p>
+</section>
+
+<section class="scene">
+<div class="tag" style="--i:0">1 · The client</div>
+<h2 style="--i:1">Who is D&amp;P Brothers?</h2>
+<div class="row" style="--i:2">
+<div class="box us" style="--n:0">London main contractor<small>trading since 2020</small></div>
+</div>
+<div class="grid" style="--i:3">
+<div class="box" style="--n:1">New builds</div><div class="box" style="--n:2">Extensions</div><div class="box" style="--n:3">Refurbishments</div><div class="box" style="--n:4">Conversions &amp; HMOs</div>
+</div>
+<p style="--i:5">We do <b class="ac">not</b> sell to homeowners. We build relationships with architects and planners.</p>
+</section>
+
+<section class="scene">
+<div class="tag" style="--i:0">2 · How construction works</div>
+<h2 style="--i:1">Where does a project come from?</h2>
+<div class="row" style="--i:2">
+<div class="box" style="--n:0">1 Client<small>has an idea</small></div><span class="arr">→</span>
+<div class="box hl" style="--n:1">2 Planner<small>permission</small></div><span class="arr">→</span>
+<div class="box hl" style="--n:2">3 Architect<small>designs it</small></div><span class="arr">→</span>
+<div class="box" style="--n:3">4 Tender<small>contractors price</small></div><span class="arr">→</span>
+<div class="box us" style="--n:4">5 Main contractor<small>that's us</small></div>
+</div>
+<p style="--i:4">The highlighted two are the people we call.</p>
+</section>
+
+<section class="scene">
+<div class="tag" style="--i:0">3 · Why architects &amp; planners?</div>
+<h2 style="--i:1">They are the first people the client trusts</h2>
+<div class="row" style="--i:2">
+<div class="box" style="--n:0">Client asks<small>"Who should build this?"</small></div><span class="arr">→</span>
+<div class="box hl" style="--n:1">Architect answers<small>a recommendation</small></div><span class="arr">→</span>
+<div class="box us" style="--n:2">We win the job</div>
+</div>
+<p style="--i:4">They sit upstream of us and control the flow of projects. Be on their list.</p>
+</section>
+
+<section class="scene">
+<div class="tag" style="--i:0">4 · What we're really selling</div>
+<h2 style="--i:1">A two-way referral partnership</h2>
+<div class="swap" style="--i:2">
+<div class="box us">D&amp;P Brothers<small>refers clients who need design</small></div>
+<span class="arr">⇄</span>
+<div class="box hl">Architect / Planner<small>refers clients who need a builder</small></div>
+</div>
+<p style="--i:3">Costs them nothing. Gives them a trusted contractor to hand clients to.</p>
+<p style="--i:4"><b class="ac">Goal:</b> find tenders → book a 15-minute intro call → build a referral network.</p>
+</section>
+
+<section class="scene">
+<div class="tag" style="--i:0">5 · The call flow</div>
+<h2 style="--i:1">From dial to booked call</h2>
+<div class="row" style="--i:2">
+<div class="box" style="--n:0">Gatekeeper<small>"Hi, it's [Name] from D&amp;P Brothers"</small></div><span class="arr">→</span>
+<div class="box" style="--n:1">Director<small>"calling about a project…"</small></div><span class="arr">→</span>
+<div class="box" style="--n:2">Status?<small>tendered / open / none</small></div><span class="arr">→</span>
+<div class="box hl" style="--n:3">Referral pitch</div><span class="arr">→</span>
+<div class="box us" style="--n:4">15-min intro call</div>
+</div>
+<p style="--i:4">Most projects are "already tendered". That is when the referral pitch comes in.</p>
+</section>
+
+<section class="scene">
+<div class="tag" style="--i:0">6 · Gatekeeper blocks</div>
+<h2 style="--i:1">When they say&hellip;</h2>
+<div class="grid" style="--i:2">
+<div class="box no" style="--n:0">"He's not available"<small class="ac">→ Ask the best time, call back exactly then</small></div>
+<div class="box no" style="--n:1">"Send an email"<small class="ac">→ Get name + direct email, set follow-up date</small></div>
+<div class="box no" style="--n:2">"What's it about?"<small class="ac">→ "Tenders and a two-way referral opportunity"</small></div>
+</div>
+<p style="--i:4">Never hang up empty-handed: get a <b class="ac">name, time, email or follow-up date</b>.</p>
+</section>
+
+<section class="scene">
+<div class="tag" style="--i:0">7 · The pitch</div>
+<h2 style="--i:1">The words that book the call</h2>
+<div class="box hl" style="--i:2;max-width:640px;text-align:left;font-weight:500;line-height:1.5">
+"We have clients who trust us for referrals. Send us any projects or clients looking for a main contractor, and we'll do the same for you. Can we do a quick 15-minute intro call?"
+</div>
+<p style="--i:3">Then offer two specific times. Send the invite straight away.</p>
+</section>
+
+<section class="scene">
+<div class="tag" style="--i:0">8 · Do &amp; don't</div>
+<h2 style="--i:1">Rules of the road</h2>
+<div class="grid" style="--i:2">
+<div class="box us" style="--n:0">Do<small>Be brief, friendly, log every call</small></div>
+<div class="box no" style="--n:1">Don't<small>Promise prices, timelines or guaranteed work</small></div>
+<div class="box us" style="--n:2">Do<small>Ask for tender packs and deadlines</small></div>
+<div class="box no" style="--n:3">Don't<small>Badmouth other contractors</small></div>
+</div>
+</section>
+
+<section class="scene">
+<div class="tag" style="--i:0">9 · Your first week</div>
+<h2 style="--i:1">Ramp-up plan</h2>
+<div class="row" style="--i:2">
+<div class="box" style="--n:0">Day 1<small>Read + learn flow</small></div>
+<div class="box" style="--n:1">Day 2<small>Pitch role-play</small></div>
+<div class="box" style="--n:2">Day 3<small>Objections</small></div>
+<div class="box" style="--n:3">Day 4<small>Supervised calls</small></div>
+<div class="box us" style="--n:4">Day 5<small>Solo + review</small></div>
+</div>
+<p style="--i:4">Targets (adjust): ~60-80 dials/day · 3-5 intro calls booked/week.</p>
+</section>
+
+<section class="scene">
+<h1 style="--i:0">Remember</h1>
+<p style="--i:1" class="ac"><b>Architects control referrals.</b></p>
+<p style="--i:2">Ask for tenders. If none, offer the swap. Always leave with a next step.</p>
+</section>
+
+</div>
+<div id="ctl">
+<button id="prev" aria-label="Previous">◀</button>
+<button id="play" aria-label="Play or pause">⏸ Pause</button>
+<button id="next" aria-label="Next">▶</button>
+<button id="vo" aria-label="Voice on or off">🔊 Voice on</button>
+<div id="dots"></div>
+</div>
+<script>
+(function(){
+var N=[
+"Welcome to the D and P Brothers referral campaign. In a few minutes you'll learn what we sell, who we call, and exactly how a call should go.",
+"D and P Brothers is a London main contractor, trading since twenty twenty. They do new builds, extensions, refurbishments, conversions and H M O conversions. Important: we don't sell to homeowners. We build relationships with architects and planners.",
+"Here's how a construction project works. A client has an idea. They go to a planner for permission, then to an architect to design it. Next comes the tender stage, where main contractors price the job. That's where we come in. The planner and the architect are the people we call.",
+"Why them? Because they're the first professionals the client trusts. The client asks, who should build this? The architect answers. Whoever they recommend often wins the job. So architects and planners control the flow of projects, and we want to be on their list.",
+"What are we really selling? A two-way referral partnership. We refer clients who need design work to them, and they refer clients who need a builder to us. It costs them nothing, and gives them a trusted contractor. Our goal: find tenders, book a fifteen minute intro call, and build a referral network.",
+"Here's the call flow. First, the gatekeeper. Say your name, and that you're calling from D and P Brothers. Then reach the director and ask about the project's status: tendered, open, or none. Most projects are already tendered, and that's when you make the referral pitch and ask for a fifteen minute intro call.",
+"Gatekeepers will try to block you. If he's not available, ask the best time and call back exactly then. If they say send an email, get a name and a direct email, and set a follow-up date. If they ask what it's about, say tenders and a two-way referral opportunity. Never hang up empty-handed: always get a name, a time, an email, or a follow-up date.",
+"Here's the pitch. We have clients who trust us for referrals. Send us any projects or clients looking for a main contractor, and we'll do the same for you. Can we do a quick fifteen minute intro call? Then offer two specific times, and send the invite straight away.",
+"Rules of the road. Be brief and friendly, and log every call. Ask for tender packs and deadlines. Never promise prices, timelines or guaranteed work, and never badmouth other contractors.",
+"Your first week. Day one, read the playbook and learn the flow. Day two, practise the pitch. Day three, objections. Day four, supervised calls. Day five, solo calls and review. Aim for sixty to eighty dials a day, and three to five intro calls booked each week.",
+"Remember: architects control referrals. Ask for tenders. If there are none, offer the swap. And always leave with a next step. Good luck."];
+var S=[].slice.call(document.querySelectorAll('.scene')),i=0,playing=false,voice=true,started=false,t0=0,D=8000;
+var synth=window.speechSynthesis,hasTTS=!!(synth&&window.SpeechSynthesisUtterance);
+var dots=document.getElementById('dots'),fill=document.getElementById('fill'),pb=document.getElementById('play'),vb=document.getElementById('vo');
+S.forEach(function(){dots.appendChild(document.createElement('i'))});
+if(!hasTTS){voice=false;vb.style.display='none';document.getElementById('gov').style.display='none'}
+function pick(){var v=synth.getVoices(),k;
+for(k=0;k<v.length;k++)if(/en-GB/i.test(v[k].lang)&&/(google|natural|daniel|serena|male)/i.test(v[k].name))return v[k];
+for(k=0;k<v.length;k++)if(/^en/i.test(v[k].lang))return v[k];return null}
+function speak(n){
+if(!hasTTS)return;synth.cancel();if(!voice||!playing)return;
+var u=new SpeechSynthesisUtterance(N[n]);u.lang='en-GB';u.rate=0.98;var v=pick();if(v)u.voice=v;
+u.onend=function(){if(i===n&&playing&&voice)setTimeout(function(){if(i===n&&playing&&voice)next()},900)};
+synth.speak(u)}
+function next(){if(i>=S.length-1){playing=false;pb.textContent='↻ Replay';fill.style.width='100%';return}show(i+1)}
+function show(n){
+i=(n+S.length)%S.length;
+S.forEach(function(s,k){s.classList.remove('on');if(k===i){void s.offsetWidth;s.classList.add('on')}});
+[].forEach.call(dots.children,function(d,k){d.classList.toggle('on',k===i)});
+D=Math.max(7500,N[i].split(' ').length*430+1500);t0=performance.now();fill.style.width='0%';
+if(started)speak(i)}
+function tick(now){
+if(playing){var p=(now-t0)/D;fill.style.width=Math.min(p,.98)*100+'%';
+if((!voice&&p>=1)||p>=2.5)next()}
+requestAnimationFrame(tick)}
+function begin(v){voice=v&&hasTTS;started=true;playing=true;pb.textContent='⏸ Pause';vb.textContent=voice?'🔊 Voice on':'🔇 Voice off';
+document.getElementById('start').style.display='none';show(0)}
+document.getElementById('gov').onclick=function(){begin(true)};
+document.getElementById('gos').onclick=function(){begin(false)};
+document.getElementById('next').onclick=function(){playing=playing||false;show(i+1)};
+document.getElementById('prev').onclick=function(){show(i-1)};
+pb.onclick=function(){
+if(!playing&&i===S.length-1&&pb.textContent.indexOf('Replay')>-1){playing=true;pb.textContent='⏸ Pause';show(0);return}
+playing=!playing;pb.textContent=playing?'⏸ Pause':'▶ Play';t0=performance.now();if(hasTTS){if(playing)speak(i);else synth.cancel()}};
+vb.onclick=function(){voice=!voice;vb.textContent=voice?'🔊 Voice on':'🔇 Voice off';t0=performance.now();if(voice)speak(i);else if(hasTTS)synth.cancel()};
+document.addEventListener('keydown',function(e){if(!started)return;if(e.key==='ArrowRight')show(i+1);if(e.key==='ArrowLeft')show(i-1);if(e.key===' '){e.preventDefault();pb.click()}});
+if(hasTTS)synth.getVoices();
+show(0);requestAnimationFrame(tick);
+})();
+</script>
+</body>
+</html>
